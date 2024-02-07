@@ -1,5 +1,5 @@
 ﻿using Libbrary.api.Dto.BookDtos;
-using Libbrary.api.Dto.RentBook;
+using Libbrary.api.Dto.RentBookDtos;
 using Libbrary.api.Services.Books;
 using Libbrary.api.Services.RentBooks;
 using Microsoft.AspNetCore.Mvc;

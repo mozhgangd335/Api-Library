@@ -14,6 +14,7 @@ namespace Libbrary.api.EntityMaps
             builder.Property("Id").ValueGeneratedOnAdd();
             builder.Property("DateRent").IsRequired();
             builder.Property("Days").IsRequired();
+            builder.Property("IsRentedBack").IsRequired();
 
 
         }

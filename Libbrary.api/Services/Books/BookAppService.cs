@@ -51,9 +51,10 @@ namespace Libbrary.api.Services.Books
                 //Category = _.Category,
                 Id = _.Id,
                 Title = _.Title,
-               Count = _.Count,
-               CategoryId=_.CategoryId,
-               AuthorId=_.AuthorID,
+                Count = _.Count,
+                CategoryId=_.CategoryId,
+                AuthorId=_.AuthorID,
+                RentedBookCount = _context.RentBooks.Where(b => b.Id == _.Id && b.IsRentedBack == false).Count(),
                 CreationDate = _.CreationDate
 
             }).ToList();

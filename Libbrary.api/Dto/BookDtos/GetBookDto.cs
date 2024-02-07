@@ -7,7 +7,8 @@
        public int Count { get; set; }
         public int CategoryId { get; set; }
         public int AuthorId { get; set; }
+        public int RentedBookCount { get; set; }
         public DateTime CreationDate { get; set; }
-        //public string Category { get; set; }
+        
     }
 }

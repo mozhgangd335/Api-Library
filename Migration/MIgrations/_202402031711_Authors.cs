@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace Library.Migrations.MIgrations
 {
     [Migration(202402031711)]
-    internal class _202402031711_Authors : Migration { 
+    internal class _202402031711_Authors : Migration 
+    { 
 
         public override void Up()
         {

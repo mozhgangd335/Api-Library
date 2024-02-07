@@ -1,5 +1,5 @@
 ﻿using Libbrary.api.Dto.BookDtos;
-using Libbrary.api.Dto.RentBook;
+using Libbrary.api.Dto.RentBookDtos;
 
 namespace Libbrary.api.Services.RentBooks
 {

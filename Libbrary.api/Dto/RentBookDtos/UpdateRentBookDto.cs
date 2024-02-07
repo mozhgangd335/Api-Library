@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Libbrary.api.Dto.RentBook
+namespace Libbrary.api.Dto.RentBookDtos
 {
     public class UpdateRentBookDto
     {

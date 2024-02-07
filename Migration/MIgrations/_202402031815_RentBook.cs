@@ -16,7 +16,8 @@ namespace Library.Migrations.MIgrations
                 .WithColumn("Id").AsInt32().PrimaryKey().Identity()
                 
                  .WithColumn("Days").AsInt32().NotNullable()
-                 .WithColumn("DateRent").AsDateTime().NotNullable();
+                 .WithColumn("DateRent").AsDateTime().NotNullable()
+                 .WithColumn("IsRentedBack").AsDateTime().NotNullable();
 
         }
         public override void Down()

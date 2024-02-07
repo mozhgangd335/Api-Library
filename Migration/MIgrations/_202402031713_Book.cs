@@ -3,8 +3,8 @@ using FluentMigrator;
 
 namespace Library.Migrations.MIgrations
 {
-    [Migration(202402021133)]
-    public class _202402021133_Book : Migration
+    [Migration(202402031713)]
+    public class _202402031713_Book : Migration
 
     {
 

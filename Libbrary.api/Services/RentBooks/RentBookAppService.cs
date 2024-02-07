@@ -1,5 +1,5 @@
 ﻿using Libbrary.api.Dto.BookDtos;
-using Libbrary.api.Dto.RentBook;
+using Libbrary.api.Dto.RentBookDtos;
 using Libbrary.api.Entities;
 using Libbrary.api.Services.Books;
 using Microsoft.EntityFrameworkCore;
@@ -16,8 +16,10 @@ namespace Libbrary.api.Services.RentBooks
 
         public void Add(AddRentBookDto dto)
         {
-            var numberofrentedbooks = _context.RentBooks.Where(r => r.UserId == dto.UserId).Count();
-            if (numberofrentedbooks < 4)
+            var rentedbooksByUser = _context.RentBooks.Where(r => r.UserId == dto.UserId && r.IsRentedBack==false);
+            var book = _context.Books.FirstOrDefault(b=>b.Id==dto.BookId);
+            var rentedbooksNumber = _context.RentBooks.Where(b => b.IsRentedBack == false).Count();
+            if (rentedbooksByUser.Count() < 4 && book.Count>rentedbooksNumber)
             {
 
                 var rentbook = new RentBook()
@@ -26,7 +28,7 @@ namespace Libbrary.api.Services.RentBooks
                     DateRent = dto.DateRent,
                     Days = dto.Days,
                     BookId = dto.BookId,
-                    UserId = dto.UserId,
+                    UserId = dto.UserId
 
 
                 };
@@ -46,7 +48,8 @@ namespace Libbrary.api.Services.RentBooks
             {
                 throw new Exception("RentBookNotFoundException");
             }
-            _context.Set<RentBook>().Remove(rentbook);
+            rentbook.IsRentedBack = true;
+            _context.Set<RentBook>().Update(rentbook);
             _context.SaveChanges();
 
         }
@@ -59,7 +62,7 @@ namespace Libbrary.api.Services.RentBooks
                 DateRent = _.DateRent,
                 UserId = _.UserId,
                 BookId = _.BookId,
-
+                
                 Days = _.Days
 
             }).ToList();
